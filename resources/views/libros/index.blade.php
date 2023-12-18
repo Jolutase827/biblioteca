@@ -4,10 +4,7 @@
 
 @section('contenido')
     @forelse ($libros as $libro)
-        <h1>{{ $libro['titulo'] }}</h1>
-        <h3>{{ $libro['autor'] }}</h3>
-        <br>
-        <br>
+        <li><a href="{{ route('libros.show', $libro) }}">{{ $libro->titulo }}</a></li>
     @empty
         <h3>Tú que esto no va xD</h3>
     @endforelse

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Libro;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
@@ -13,7 +14,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = array(
+        $libros = Libro::get();
+        
+        return view('libros.index',compact('libros'));
+        /*array(
             array(
                 "titulo" => "El juego de Ender",
                 "autor" => "Orson Scott Card"
@@ -30,8 +34,8 @@ class LibroController extends Controller
                 "titulo" => "El Señor de los Anillos",
                 "autor" => "J.R.R. Tolkien"
                 )
-            );
-            return view('libros.index',compact('libros'));
+            );*/
+            
     }
 
     /**
